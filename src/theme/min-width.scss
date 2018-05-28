@@ -1,0 +1,5 @@
+@mixin min-width($value) {
+  @media (min-width: $value) {
+    @content;
+  }
+}

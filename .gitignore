@@ -1,0 +1,4 @@
+.DS_Store
+package-lock.js
+node_modules
+yarn-error.log

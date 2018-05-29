@@ -36,21 +36,20 @@
   box-shadow: 0 0.15em 0.1em rgba($black, 0.15);
   font-family: $caveat;
   font-size: 1.35em;
-  transform: rotate(3deg);
+  transform: rotate(1deg);
   position: relative;
   transition: ease all 500ms;
 
   &:after {
     content: '';
     background: linear-gradient(-45deg, $yellow-xlight, $yellow-light);
-    box-shadow: 0 0.15em 0.1em rgba($black, 0.05);
     z-index: -1;
     position: absolute;
     right: 0;
     bottom: 0;
     width: 100%;
     height: 100%;
-    transform: rotate(-4deg);
+    transform: rotate(-2deg);
     transition: ease all 500ms;
   }
 
@@ -59,8 +58,8 @@
 
     &:after {
       background: linear-gradient(
-        -45deg,
-        rgba($white, 0.5),
+        -25deg,
+        rgba($white, 0.25) 15%,
         $yellow-xlight,
         $yellow-light
       );

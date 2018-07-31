@@ -34,7 +34,7 @@ export class UseCanvas extends Component {
     addItem: () => {
       let item = prompt(`Enter new ${block} item`);
 
-      if (item.replace(/\ /g, '')) {
+      if (!!item && item.replace(/\ /g, '')) {
         this.updateBlock(block, state => [...state, item]);
       }
     },

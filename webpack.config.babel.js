@@ -1,6 +1,7 @@
 import path from 'path';
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import { ENV } from '~/configuration/environment';
 
 // constants
 
@@ -18,6 +19,7 @@ let templatePlugin = new HtmlWebpackPlugin({
 });
 
 let hotReloaderPlugin = new webpack.HotModuleReplacementPlugin();
+let useEnvironmentVariables = new webpack.DefinePlugin({ ...ENV });
 
 // config ======================================================================
 
@@ -36,7 +38,7 @@ let config = {
     path: OUTPUT_PATH,
     filename: '[name].js'
   },
-  plugins: [templatePlugin],
+  plugins: [useEnvironmentVariables, templatePlugin],
   module: {
     rules: [
       {

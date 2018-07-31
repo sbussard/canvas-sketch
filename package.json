@@ -6,7 +6,7 @@
     "build": "webpack",
     "precommit": "pretty-quick --staged"
   },
-  "author": "Stephen Bussard <me@stephenbussard.com>",
+  "author": "@sbussard",
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.26.3",

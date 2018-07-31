@@ -8,6 +8,10 @@ A web app to sketch out a [business model canvas](https://en.wikipedia.org/wiki/
 
 `node` and `yarn`
 
+| Variable            | Required       | Value                             |
+| ------------------- | -------------- | --------------------------------- |
+| GOOGLE_ANALYTICS_ID | For Production | Your Google Analytics property id |
+
 ## Install
 
 `yarn`

@@ -1,8 +1,17 @@
-export const PROCESS_ENV = process.env; // eslint-disable-line
 export const REQUIRED_VARIABLES = ['GOOGLE_ANALYTICS_ID'];
+
+/* eslint-disable */
+
+export const PROCESS_ENV =
+  process.env.NODE_ENV === 'development'
+    ? { GOOGLE_ANALYTICS_ID: '', ...process.env }
+    : process.env;
+
+/* eslint-enable */
 
 let findMissingVariable = variable =>
   Object.keys(PROCESS_ENV).indexOf(variable) === -1;
+
 let missingVariables = REQUIRED_VARIABLES.filter(findMissingVariable);
 
 if (missingVariables.length > 0) {

@@ -24,8 +24,11 @@ export class UseCanvas extends Component {
         [block]: getNewState(fullState[block])
       });
 
-    let saveCanvas = () =>
-      (localStorage.canvas = btoa(JSON.stringify(this.state)));
+    let saveCanvas = () => {
+      localStorage.canvas = btoa(
+        unescape(encodeURIComponent(JSON.stringify(this.state)))
+      );
+    };
 
     this.setState(updater, saveCanvas);
   }
@@ -49,7 +52,9 @@ export class UseCanvas extends Component {
 
   componentDidMount() {
     if (localStorage.canvas) {
-      this.setState(state => JSON.parse(atob(localStorage.canvas)));
+      this.setState(state =>
+        JSON.parse(decodeURIComponent(escape(atob(localStorage.canvas))))
+      );
     }
   }
 

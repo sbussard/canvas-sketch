@@ -2,7 +2,7 @@
   "name": "business-model-canvas-sketch",
   "version": "1.0.0",
   "scripts": {
-    "start": "NODE_ENV=development webpack-dev-server --history-api-fallback",
+    "start": "cross-env NODE_ENV=development webpack-dev-server --history-api-fallback",
     "build": "webpack",
     "precommit": "pretty-quick --staged"
   },
@@ -17,6 +17,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-root-import": "^4.1.8",
     "classnames": "^2.2.5",
+    "cross-env": "^5.2.0",
     "css-loader": "^0.28.11",
     "html-webpack-plugin": "^3.2.0",
     "husky": "^0.14.3",

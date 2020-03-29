@@ -2,7 +2,8 @@
   "name": "business-model-canvas-sketch",
   "version": "1.0.0",
   "scripts": {
-    "start": "cross-env NODE_ENV=development webpack-dev-server --history-api-fallback",
+    "start":
+      "cross-env NODE_ENV=development webpack-dev-server --history-api-fallback",
     "build": "webpack",
     "precommit": "pretty-quick --staged"
   },

@@ -12,30 +12,41 @@ import PaintRollerIcon from '~/component/icon/PaintRoller';
 import PeopleIcon from '~/component/icon/People';
 import PriceTagIcon from '~/component/icon/PriceTag';
 import SmileyFaceIcon from '~/component/icon/SmileyFace';
+
+import AlliesAndGifts from '~/assets/icons/AlliesAndGifts.png';
+import BetterWorld from '~/assets/icons/BetterWorld.png';
+import CallToAdventure from '~/assets/icons/CallToAdventure.png';
+import CrossingTheThreshold from '~/assets/icons/CrossingTheThreshold.png';
+import EverydayHero from '~/assets/icons/EverydayHero.png';
+import Mentor from '~/assets/icons/Mentor.png';
+import OrdinaryWorld from '~/assets/icons/OrdinaryWorld.png';
+import ThreeChallenges from '~/assets/icons/ThreeChallenges.png';
+import Villain from '~/assets/icons/Villain.png';
+
 import S from './styles.scss';
 
 let names = [
-  'Key Partnerships',
-  'Key Activities',
-  'Key Resources',
-  'Value Propositions',
-  'Customer Relationships',
-  'Channels',
-  'Customer Segments',
-  'Cost Structure',
-  'Revenue Streams'
+  'Everyday Hero',
+  'Ordinary World',
+  'Call to Adventure',
+  'Better World',
+  'Crossing the Threshold',
+  'Allies and Gifts',
+  'Mentor and Gifts',
+  'Compelling Villain',
+  'Three Challenges'
 ];
 
 let icons = [
-  LinkIcon,
-  ClipboardIcon,
-  PaintRollerIcon,
-  SmileyFaceIcon,
-  HeartIcon,
-  FeedIcon,
-  PeopleIcon,
-  PriceTagIcon,
-  MoneyIcon
+  EverydayHero,
+  OrdinaryWorld,
+  CallToAdventure,
+  BetterWorld,
+  CrossingTheThreshold,
+  AlliesAndGifts,
+  Mentor,
+  Villain,
+  ThreeChallenges
 ];
 
 let makeProps = (block, index) => ({

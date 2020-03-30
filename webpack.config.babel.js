@@ -62,8 +62,13 @@ let config = {
         ]
       },
       {
-        test: /\.png$/,
-        use: ['file-loader']
+        test: /\.(jpg|png|svg)$/,
+        use: {
+          loader: 'file-loader',
+          options: {
+            limit: 50000 // make sure this number is big enough to load your resource, or do not define it at all.
+          }
+        }
       }
     ]
   }

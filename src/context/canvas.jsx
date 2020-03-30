@@ -4,15 +4,15 @@ const Context = createContext('canvas');
 export const CanvasConsumer = Context.Consumer;
 
 let emptyState = {
-  'Key Partnerships': [],
-  'Key Activities': [],
-  'Key Resources': [],
-  'Value Propositions': [],
-  'Customer Relationships': [],
-  Channels: [],
-  'Customer Segments': [],
-  'Cost Structure': [],
-  'Revenue Streams': []
+  'Everyday Hero': [],
+  'Ordinary World': [],
+  'Call to Adventure': [],
+  'Better World': [],
+  'Crossing the Threshold': [],
+  'Allies and Gifts': [],
+  'Mentor and Gifts': [],
+  'Compelling Villain': [],
+  'Three Challenges': []
 };
 
 export class UseCanvas extends Component {

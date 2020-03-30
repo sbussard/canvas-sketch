@@ -21,7 +21,12 @@ let View = ({ Icon, name, key = name, items, actions }) => (
   <div className={S.container} key={key}>
     <header className={S.header}>
       <span className={S.name}>{name}</span>
-      <Icon className={S.icon} />
+      <img src={Icon} className="icon" width="40" />
+
+      {/*
+        
+        <Icon className={S.icon} />
+      */}
     </header>
     <ol className={S.items}>{items.map(makeProps(actions)).map(StickyNote)}</ol>
     <footer className={S.footer}>

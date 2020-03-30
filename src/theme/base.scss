@@ -3,6 +3,95 @@
   box-sizing: border-box;
 }
 
+.section-ss-red {
+  background-color: #ff4338;
+}
+.section-ss-pink {
+  background-color: #fc40b6;
+}
+.section-ss-purple {
+  background-color: #9638b8;
+}
+.section-ss-blue {
+  background-color: #1540f5;
+}
+.section-ss-green {
+  background-color: #2ed03c;
+}
+.section-ss-orange {
+  background-color: #ff9012;
+}
+.section-ss-teal {
+  background-color: #11d8bb;
+}
+.heading-ss-red,
+.slider-ss-red {
+  color: #ff4338;
+}
+.heading-ss-pink,
+.slider-ss-pink {
+  color: #fc40b6;
+}
+.heading-ss-purple,
+.slider-ss-purple {
+  color: #9638b8;
+}
+.heading-ss-blue,
+.slider-ss-blue {
+  color: #1540f5;
+}
+.heading-ss-green,
+.slider-ss-green {
+  color: #2ed03c;
+}
+.heading-ss-orange,
+.slider-ss-orange {
+  color: #ff9012;
+}
+.heading-ss-teal,
+.slider-ss-teal {
+  color: #11d8bb;
+}
+@font-face {
+  font-family: apercu-regular;
+  src: url(https://strongerstories.org/fonts/apercu/apercu-regular.woff2)
+      format('woff2'),
+    url(https://strongerstories.org/fonts/apercu/apercu-regular.woff)
+      format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: apercu-regular;
+  src: url(https://strongerstories.org/fonts/apercu/apercu-bold.woff2)
+      format('woff2'),
+    url(https://strongerstories.org/fonts/apercu/apercu-bold.woff)
+      format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: apercu-mono-regular;
+  src: url(https://strongerstories.org/fonts/apercu/apercu-mono-regular.woff2)
+      format('woff2'),
+    url(https://strongerstories.org/fonts/apercu/apercu-mono-regular.woff)
+      format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: strongsansregular;
+  src: url(https://strongerstories.org/fonts/strongersans/strongsans-webfont.woff2)
+      format('woff2'),
+    url(https://strongerstories.org/fonts/strongersans/strongsans-webfont.woff)
+      format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
 html,
 body {
   margin: 0;
@@ -19,6 +108,14 @@ html {
 body {
   font-size: 1.6rem;
   font-family: sans-serif;
+}
+
+header {
+  font-family: 'strongsansregular';
+  -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+  font-size: 2.75rem;
+  line-height: 0.85;
 }
 
 ul,

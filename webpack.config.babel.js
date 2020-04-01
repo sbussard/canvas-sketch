@@ -10,6 +10,7 @@ const TEMPLATE_FILE = path.resolve('src', 'index.html');
 const APP_ENTRY_FILE = path.resolve('src', 'index.jsx');
 const THEME_PATH = path.resolve('src', 'theme');
 const OUTPUT_PATH = path.resolve('docs');
+const FONT_PATH = path.resolve('src', 'fonts');
 
 // plugins =====================================================================
 
@@ -62,7 +63,7 @@ let config = {
         ]
       },
       {
-        test: /\.(jpg|png|svg)$/,
+        test: /\.(jpg|png|svg|woff|woff2)$/,
         use: {
           loader: 'file-loader',
           options: {

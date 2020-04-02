@@ -10,7 +10,7 @@ const TEMPLATE_FILE = path.resolve('src', 'index.html');
 const APP_ENTRY_FILE = path.resolve('src', 'index.jsx');
 const THEME_PATH = path.resolve('src', 'theme');
 const OUTPUT_PATH = path.resolve('docs');
-const FONT_PATH = path.resolve('src', 'fonts');
+const ASSETS_PATH = path.resolve('assets');
 
 // plugins =====================================================================
 
@@ -63,13 +63,25 @@ let config = {
         ]
       },
       {
-        test: /\.(jpg|png|svg|woff|woff2)$/,
+        test: /\.(jpg|png|svg)$/,
         use: {
           loader: 'file-loader',
           options: {
             limit: 50000 // make sure this number is big enough to load your resource, or do not define it at all.
           }
         }
+      },
+      {
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'fonts/'
+            }
+          }
+        ]
       }
     ]
   }

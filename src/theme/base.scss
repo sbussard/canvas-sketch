@@ -52,35 +52,35 @@
 .slider-ss-teal {
   color: #11d8bb;
 }
+
+// Tried everything to put the fonts into their own folder.
+// No luck!  Ended up trying /assets...could be because of loading
+// other images into there and compiling in?
+// not sure.  But fonts in src work and I've spent too much time on it!
 @font-face {
   font-family: apercu-regular;
-  src: local('apercu-regular'), url(/fonts/apercu-regular.woff2) format('woff2'),
-    url(/fonts/apercu-regular.woff) format('woff');
+  src: local('apercu-regular'), url('/apercu-regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: apercu-regular;
-  src: url(/fonts/apercu-bold.woff2) format('woff2'),
-    url(/fonts/apercu-bold.woff) format('woff');
+  src: url('/apercu-bold.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
   font-family: apercu-mono-regular;
-  src: url(/fonts/apercu-mono-regular.woff2) format('woff2'),
-    url(/fonts/apercu-mono-regular.woff) format('woff');
+  src: url('/apercu-mono-regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: strongsansregular;
-  src: local('strongsansregular'),
-    url(/fonts/strongsans-webfont.woff2) format('woff2'),
-    url(/fonts/strongsans-webfont.woff) format('woff');
+  src: url('/strongsans-webfont.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
 }

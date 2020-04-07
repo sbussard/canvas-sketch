@@ -56,6 +56,7 @@ let config = {
       {
         test: /\.scss$/,
         exclude: /node_modules/,
+        include: [path.resolve(__dirname, 'src/fonts')],
         use: [
           'style-loader?insertAt=top',
           'css-loader?modules&importLoaders=1&localIdentName=[local]-[hash:base64:4]',

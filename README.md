@@ -10,7 +10,7 @@ A web app to sketch out a [business model canvas](https://en.wikipedia.org/wiki/
 
 | Variable            | Required       | Value                             |
 | ------------------- | -------------- | --------------------------------- |
-| GOOGLE_ANALYTICS_ID | For Production | Your Google Analytics property id |
+| REACT_APP_GOOGLE_ANALYTICS_ID | For Production | Your Google Analytics property id |
 
 ## Install
 

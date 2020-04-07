@@ -1,4 +1,3 @@
-@import '~theme/colors';
 @import '~theme/min-width';
 
 @mixin VerticalList {
@@ -70,7 +69,7 @@
 .container {
   width: 100%;
   padding: 1em;
-  background: $gray-xlight;
+  background: var(--gray-xlight);
 
   @include VerticalList;
 

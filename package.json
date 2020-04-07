@@ -1,6 +1,6 @@
 {
   "name": "canvas-sketch",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
@@ -15,7 +15,13 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "postbuild": "mv build docs"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "REACT_APP_GOOGLE_ANALYTICS_ID=UA-24399886-3 npm run build && git ls-files --modified | xargs git add"
+    }
   },
   "eslintConfig": {
     "extends": "react-app"

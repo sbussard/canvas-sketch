@@ -37,7 +37,6 @@ let config = {
   },
   output: {
     path: OUTPUT_PATH,
-    publicPath: '/',
     filename: '[name].js'
   },
   plugins: [useEnvironmentVariables, templatePlugin],
@@ -76,10 +75,11 @@ let config = {
         test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
         use: [
           {
-            loader: 'file-loader',
+            loader: 'url-loader',
             options: {
-              name: '[name].[ext]',
-              outputPath: 'fonts/'
+              limit: 10000,
+              mimetype: 'application/font-woff',
+              publicPath: '../'
             }
           }
         ]

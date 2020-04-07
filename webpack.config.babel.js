@@ -37,6 +37,7 @@ let config = {
   },
   output: {
     path: OUTPUT_PATH,
+    publicPath: '/',
     filename: '[name].js'
   },
   plugins: [useEnvironmentVariables, templatePlugin],

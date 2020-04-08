@@ -66,14 +66,16 @@
 
 @font-face {
   font-family: apercu-regular;
-  src: url('/apercu-bold.woff2') format('woff2');
+  src: url('http://d3hjq8dtxy70su.cloudfront.net/fonts/apercu-bold.woff2')
+    format('woff2');
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
   font-family: apercu-mono-regular;
-  src: url('/apercu-mono-regular.woff2') format('woff2');
+  src: url('http://d3hjq8dtxy70su.cloudfront.net/fonts/apercu-mono-regular.woff2')
+    format('woff2');
   font-weight: 400;
   font-style: normal;
 }
@@ -82,7 +84,10 @@
   font-family: strongsansregular;
   // Needs to be a relative path for webpack to include in the bundle
   // This isn't the right path for the font to load though (once SCSS has been compiled)
-  src: url('../../strongsans-webfont.woff2') format('woff2');
+  //src: url('../../strongsans-webfont.woff2') format('woff2');
+
+  src: url('http://d3hjq8dtxy70su.cloudfront.net/fonts/strongsans-webfont.woff2')
+    format('woff2');
   font-weight: 400;
   font-style: normal;
 }

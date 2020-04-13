@@ -22,6 +22,9 @@ let templatePlugin = new HtmlWebpackPlugin({
 let hotReloaderPlugin = new webpack.HotModuleReplacementPlugin();
 let useEnvironmentVariables = new webpack.DefinePlugin({ ...ENV });
 
+const HtmlWebPackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
 // config ======================================================================
 
 let config = {
@@ -63,6 +66,11 @@ let config = {
         ]
       },
       {
+        test: /\.css$/,
+        exclude: /node_modules/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader']
+      },
+      {
         test: /\.(jpg|png|svg)$/,
         use: {
           loader: 'file-loader',
@@ -96,6 +104,18 @@ if (NODE_ENV === 'development') {
     'webpack/hot/only-dev-server' // "only" prevents reload on syntax errors
   ];
   config.plugins.push(hotReloaderPlugin);
+  config.plugins.push(
+    new MiniCssExtractPlugin({
+      filename: 'styles.css',
+      chunkFilename: 'styles.css'
+    })
+  );
+  config.plugins.push(
+    new HtmlWebPackPlugin({
+      template: './src/index.html',
+      filename: './index.html'
+    })
+  );
 }
 
 export default config;

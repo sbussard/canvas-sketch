@@ -1,4 +1,6 @@
 import React, { Component, createContext } from 'react';
+import Modal from '~/component/Modal';
+import { storyData } from '~/storydata.js';
 
 const Context = createContext('canvas');
 export const CanvasConsumer = Context.Consumer;
@@ -16,6 +18,13 @@ let emptyState = {
 };
 
 export class UseCanvas extends Component {
+  constructor(props) {
+    super(props);
+
+    this.closeModal = this.closeModal.bind(this);
+    this.save = this.save.bind(this);
+  }
+
   state = emptyState;
 
   updateBlock(block, getNewState) {
@@ -35,11 +44,12 @@ export class UseCanvas extends Component {
 
   getBlockActions = block => ({
     addItem: () => {
-      let item = prompt(`Enter new ${block} item`);
+      this.setState(prevState => ({
+        ...prevState,
+        currentBlock: block
+      }));
 
-      if (!!item && item.replace(/\ /g, '')) {
-        this.updateBlock(block, state => [...state, item]);
-      }
+      this.customPrompt('Add to the ' + block, storyData.sections[block]);
     },
     removeItem: item => {
       if (confirm('Remove item?')) {
@@ -58,6 +68,30 @@ export class UseCanvas extends Component {
     }
   }
 
+  customPrompt(text, block) {
+    this.setState({
+      showModal: true,
+      modalmessage: text,
+      block: block
+    });
+  }
+
+  closeModal() {
+    this.setState({
+      showModal: false
+    });
+  }
+
+  save(item) {
+    if (!!item && item.replace(/\ /g, '')) {
+      this.updateBlock(this.state.currentBlock, state => [...state, item]);
+    }
+
+    this.setState({
+      showModal: false
+    });
+  }
+
   render() {
     return (
       <Context.Provider
@@ -66,6 +100,13 @@ export class UseCanvas extends Component {
           getBlockActions: this.getBlockActions
         }}>
         {this.props.children}
+        <Modal
+          show={this.state.showModal}
+          text={this.state.modalmessage}
+          block={this.state.block}
+          closeEvent={this.closeModal}
+          saveEvent={this.save}
+        />
       </Context.Provider>
     );
   }

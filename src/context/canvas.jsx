@@ -1,8 +1,12 @@
 import React, { Component, createContext } from 'react';
 import Modal from '~/component/Modal';
 import { storyData } from '~/storydata.js';
+import Airtable from 'airtable';
 
 const Context = createContext('canvas');
+const AIRTABLE_API_KEY = 'keyV26LysOMLAJkaJ';
+const AIRTABLE_CASE_STORY_BASE = 'appv0MtYS7Uu06To2';
+const AIRTABLE_PROJECT_STORY_BASE = 'appv0MtYS7Uu06To2';
 export const CanvasConsumer = Context.Consumer;
 
 let emptyState = {
@@ -66,6 +70,43 @@ export class UseCanvas extends Component {
         JSON.parse(decodeURIComponent(escape(atob(localStorage.canvas))))
       );
     }
+    //return
+    let base = new Airtable({ apiKey: AIRTABLE_API_KEY }).base(
+      AIRTABLE_CASE_STORY_BASE
+    );
+
+    base('Case Story').find('recP1U6I5BC3tVWMU', (err, record) => {
+      if (err) {
+        console.error(err);
+        return;
+      }
+      // console.log('Retrieved', record.id);
+      // console.log('Retrieved', record.fields["Everyday Hero"]);
+      // console.log(JSON.parse(decodeURIComponent(escape(atob(localStorage.canvas)))));
+      //return
+      // update all the blocks with the content from airtable record
+      this.setState(prevState => {
+        Object.keys(emptyState).forEach((item, index) => {
+          if (item == 'Ordinary World')
+            prevState[item] = [record.fields['The Ordinary World']];
+          else prevState[item] = [record.fields[item]];
+        });
+
+        // Separate blocks
+        // prevState["Three Challenges"] = [
+        //   record.fields["Challenge 1"],
+        //   record.fields["Challenge 2"],
+        //   record.fields["Challenge 3"]
+        // ]
+        prevState['Three Challenges'] = [
+          record.fields['Challenge 1'] +
+            record.fields['Challenge 2'] +
+            record.fields['Challenge 3']
+        ];
+
+        return prevState;
+      });
+    });
   }
 
   customPrompt(text, block) {

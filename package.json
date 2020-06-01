@@ -43,6 +43,7 @@
   },
   "dependencies": {
     "@tailwindcss/ui": "^0.2.2",
+    "airtable": "^0.8.1",
     "alpinejs": "^2.2.5",
     "classnames": "^2.2.5",
     "cross-env": "^5.2.0",

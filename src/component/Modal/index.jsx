@@ -1,5 +1,7 @@
 import React from 'react';
+import classnames from 'classnames';
 import PropTypes from 'prop-types';
+import S from './styles.scss';
 
 class Modal extends React.Component {
   constructor(props) {
@@ -70,7 +72,7 @@ class Modal extends React.Component {
             <div className="mt-3 text-center sm:mt-5">
               <h3 className="text-lg leading-6 font-medium text-gray-900">
                 <header className="header">
-                  {this.state.text}
+                  <span className={S.title}>{this.state.text}</span>
                   <br />
                 </header>
               </h3>

@@ -25,7 +25,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="app">
         <Modal show={this.state.isOpen} onClose={this.toggleModal}>
           Here's some content for the modal
         </Modal>

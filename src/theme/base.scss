@@ -114,7 +114,7 @@ header {
   font-family: 'strongsansregular';
   -webkit-font-smoothing: antialiased;
   font-weight: 400;
-  font-size: 2.75rem;
+  font-size: 2rem;
   line-height: 0.85;
 }
 
@@ -129,5 +129,12 @@ ol {
     min-height: 100vh;
     min-width: 100%;
     display: flex;
+  }
+}
+
+@media print {
+  html {
+    font-size: 65.2%;
+    //body {transform: scale(.78);}
   }
 }

@@ -21,9 +21,15 @@ img {
 }
 
 .name {
-  font-weight: bold;
+  //font-weight: bold;
   //color: $gray-xdark;
-  color: $ss-teal;
+  //color: $ss-teal;
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 32px;
+
+  color: #202020;
 }
 
 .items {
@@ -36,12 +42,14 @@ img {
 .item {
   cursor: pointer;
   display: inline;
-  font-family: 'strongsansregular';
 
-  -webkit-font-smoothing: antialiased;
-  font-weight: 400;
-  font-size: 2.3rem;
-  line-height: 0.85;
+  font-family: Courier;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 18px;
+
+  color: #202020;
 
   /**
   background: $yellow-xlight;

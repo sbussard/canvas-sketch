@@ -1,6 +1,11 @@
 module.exports = {
   theme: {
-    extend: {}
+    extend: {
+      screens: {
+        print: { raw: 'print' }
+        // => @media  print { ... }
+      }
+    }
   },
   variants: {},
   plugins: [require('@tailwindcss/ui')]

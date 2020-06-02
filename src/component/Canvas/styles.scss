@@ -81,4 +81,8 @@
   @include min-width(1000px) {
     @include BusinessModelCanvas;
   }
+
+  @media print {
+    @include BusinessModelCanvas;
+  }
 }

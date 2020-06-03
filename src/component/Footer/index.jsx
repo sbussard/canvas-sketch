@@ -3,11 +3,11 @@ import classnames from 'classnames';
 import S from './styles.scss';
 
 export default () => (
-  <nav id="topnav" className="print:hidden bg-white border-b border-gray-200">
-    <div className="mx-auto p-4 sm:px-6 lg:px-8">
+  <div id="bottomnav" className={S.bottomnav + ' bg-white'}>
+    <div className="mx-auto py-6 px-1">
       <div className="md:flex md:items-center md:justify-between">
         <div className="flex-1 min-w-0">
-          <header id="headerTitle">
+          <header id="headerTitle" class={S.header}>
             <a href="http://www.strongerstories.org" target="_blank">
               Stronger <br />
               Stories
@@ -16,14 +16,9 @@ export default () => (
         </div>
 
         <div className="mt-4 flex md:mt-0 md:ml-4">
-          <button
-            type="button"
-            onClick={() => window.print()}
-            className={S.ssbutton + ' inline-flex items-center px-6'}>
-            Print
-          </button>
+          <span>strongerstories.org</span>
         </div>
       </div>
     </div>
-  </nav>
+  </div>
 );

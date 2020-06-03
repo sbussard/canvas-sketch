@@ -1,0 +1,23 @@
+.bottomnav {
+  display: none;
+
+  @media print {
+    display: block;
+  }
+
+  font-family: apercu-mono-regular;
+  src: url('//d3hjq8dtxy70su.cloudfront.net/fonts/apercu-mono-regular.woff2')
+    format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+
+  position: fixed;
+  bottom: 0;
+  height: 65px;
+  width: 100%;
+}
+
+.header {
+  font-size: 24px;
+}

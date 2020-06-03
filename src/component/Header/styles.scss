@@ -1,4 +1,40 @@
-.headerTitle {
+.ssbutton {
+  border: 2px solid #1540f5;
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 32px;
+  /* or 178% */
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  /* Strong Blue */
+
+  color: #1540f5;
+  mix-blend-mode: normal;
+}
+
+.ssbutton:hover {
+  background: #1540f5;
+  /* Strong Blue */
+
+  border: 2px solid #1540f5;
+  box-sizing: border-box;
+
+  color: #ffffff;
+  mix-blend-mode: normal;
+}
+
+.ssbutton:active {
+  background: #4e70ff;
+  border: 2px solid #4e70ff;
+  box-sizing: border-box;
+  color: #ffffff;
+}
+
+.test {
   color: red;
-  border: 1px solid blue;
 }

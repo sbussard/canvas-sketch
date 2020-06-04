@@ -11,7 +11,8 @@ class Modal extends React.Component {
       show: false,
       newcontent: '',
       text: props.text,
-      closeEvent: props.closeEvent
+      closeEvent: props.closeEvent,
+      value: props.value
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -19,19 +20,31 @@ class Modal extends React.Component {
 
   handleInputChange(event) {
     const target = event.target;
-    const value = target.name === 'isGoing' ? target.checked : target.value;
+    const value = target.value;
     const name = target.name;
 
+    var lengthGuidance = null;
+    if (value && value.length > this.props.block.maxlength)
+      lengthGuidance = this.props.block.maxlength - value.length;
+
     this.setState({
-      [name]: value
+      [name]: value,
+      lengthGuidance: lengthGuidance
     });
   }
 
   componentWillReceiveProps(nextProps) {
+    var lengthGuidance = null;
+    if (nextProps.value && nextProps.value.length > nextProps.block.maxlength)
+      lengthGuidance = nextProps.block.maxlength - nextProps.value.length;
+
     this.setState({
       show: nextProps.show,
       text: nextProps.text,
-      closeEvent: nextProps.closeEvent
+      value: nextProps.value,
+      newcontent: nextProps.value,
+      closeEvent: nextProps.closeEvent,
+      lengthGuidance: lengthGuidance
     });
   }
 
@@ -40,6 +53,7 @@ class Modal extends React.Component {
       show: false,
       newcontent: '',
       text: this.props.text,
+      value: '',
       closeEvent: this.props.closeEvent
     });
     this.props.closeEvent();
@@ -66,6 +80,13 @@ class Modal extends React.Component {
           x-show="open"
           className="bg-white rounded-lg px-4 pt-5 pb-4 overflow-hidden shadow-xl transform transition-all sm:max-w-lg sm:w-full sm:p-6">
           <div>
+            <div className="absolute top-5 right-5 text-sm text-red-500">
+              {this.state.lengthGuidance}
+            </div>
+            {/* <div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4" role="alert">
+              <p class="font-bold">Be Warned</p>
+              <p>Something not ideal might be happening.</p>
+            </div> */}
             <div className="mx-auto flex items-center justify-center h-12 w-12">
               <img src={this.props.block.icon} className="icon" width="60" />
             </div>
@@ -84,13 +105,23 @@ class Modal extends React.Component {
                   <br />
                   <div className="max-w-lg flex rounded-md shadow-sm">
                     <textarea
-                      autoFocus
                       id="newcontent"
                       name="newcontent"
                       rows={3}
-                      className="form-textarea block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5"
-                      defaultValue={''}
+                      className={
+                        S.textareastyle +
+                        ' form-textarea block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5'
+                      }
+                      defaultValue={this.props.value}
                       onChange={e => this.handleInputChange(e)}
+                      autoFocus
+                      onFocus={function(e) {
+                        // This sets the caret position at the end of the text, and scrolls to the bottom
+                        var val = e.target.value;
+                        e.target.value = '';
+                        e.target.value = val;
+                        e.target.scrollTop = e.target.scrollHeight;
+                      }}
                     />
                   </div>
                 </div>

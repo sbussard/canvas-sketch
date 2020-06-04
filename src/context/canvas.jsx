@@ -21,6 +21,8 @@ let emptyState = {
   'Three Challenges': []
 };
 
+let enableBlocks = false;
+
 export class UseCanvas extends Component {
   constructor(props) {
     super(props);
@@ -53,12 +55,30 @@ export class UseCanvas extends Component {
         currentBlock: block
       }));
 
-      this.customPrompt('Add to the ' + block, storyData.sections[block]);
+      this.customPrompt(
+        'Add to the ' + block,
+        storyData.sections[block],
+        enableBlocks ? '' : this.state[block][0]
+      );
     },
     removeItem: item => {
-      if (confirm('Remove item?')) {
-        this.updateBlock(block, state =>
-          state.filter((_, index) => index !== item)
+      if (enableBlocks) {
+        if (confirm('Remove item?')) {
+          this.updateBlock(block, state =>
+            state.filter((_, index) => index !== item)
+          );
+        }
+      } else {
+        // Set the current block to the one that we're editing
+        this.setState(prevState => ({
+          ...prevState,
+          currentBlock: block
+        }));
+
+        this.customPrompt(
+          'Add to the ' + block,
+          storyData.sections[block],
+          this.state[block][item]
         );
       }
     }
@@ -70,7 +90,10 @@ export class UseCanvas extends Component {
         JSON.parse(decodeURIComponent(escape(atob(localStorage.canvas))))
       );
     }
-    //return
+
+    // We're not doing anything with airtable for now
+    return;
+
     let base = new Airtable({ apiKey: AIRTABLE_API_KEY }).base(
       AIRTABLE_CASE_STORY_BASE
     );
@@ -83,7 +106,7 @@ export class UseCanvas extends Component {
       // console.log('Retrieved', record.id);
       // console.log('Retrieved', record.fields["Everyday Hero"]);
       // console.log(JSON.parse(decodeURIComponent(escape(atob(localStorage.canvas)))));
-      //return
+
       // update all the blocks with the content from airtable record
       this.setState(prevState => {
         Object.keys(emptyState).forEach((item, index) => {
@@ -109,11 +132,12 @@ export class UseCanvas extends Component {
     });
   }
 
-  customPrompt(text, block) {
+  customPrompt(text, block, currentValue) {
     this.setState({
       showModal: true,
       modalmessage: text,
-      block: block
+      block: block,
+      value: currentValue
     });
   }
 
@@ -124,9 +148,18 @@ export class UseCanvas extends Component {
   }
 
   save(item) {
-    if (!!item && item.replace(/\ /g, '')) {
-      this.updateBlock(this.state.currentBlock, state => [...state, item]);
-    }
+    // console.log("saving item")
+    // console.log(item)
+    // console.log("Enable Blocks?")
+    // console.log(enableBlocks)
+    // console.log("Current Block")
+    // console.log(this.state.currentBlock)
+
+    if (enableBlocks) {
+      // Check that we have an item
+      if (!!item && item.replace(/\ /g, ''))
+        this.updateBlock(this.state.currentBlock, state => [...state, item]);
+    } else this.updateBlock(this.state.currentBlock, state => [item]);
 
     this.setState({
       showModal: false
@@ -145,6 +178,7 @@ export class UseCanvas extends Component {
           show={this.state.showModal}
           text={this.state.modalmessage}
           block={this.state.block}
+          value={this.state.value}
           closeEvent={this.closeModal}
           saveEvent={this.save}
         />

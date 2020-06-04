@@ -42,7 +42,8 @@ img {
   color: $gray-dark;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  // This caused cropping issues with long words
+  // align-items: flex-start;
 }
 
 .item {

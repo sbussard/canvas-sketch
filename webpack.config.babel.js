@@ -42,7 +42,11 @@ let config = {
     path: OUTPUT_PATH,
     filename: '[name].js'
   },
-  plugins: [useEnvironmentVariables, templatePlugin],
+  plugins: [
+    useEnvironmentVariables,
+    templatePlugin,
+    new MiniCssExtractPlugin()
+  ],
   module: {
     rules: [
       {

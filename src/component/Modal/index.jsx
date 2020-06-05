@@ -24,7 +24,7 @@ class Modal extends React.Component {
     const name = target.name;
 
     var lengthGuidance = null;
-    if (value && value.length > this.props.block.maxlength)
+    if (value && value.length >= this.props.block.maxlength - 10)
       lengthGuidance = this.props.block.maxlength - value.length;
 
     this.setState({
@@ -35,7 +35,10 @@ class Modal extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     var lengthGuidance = null;
-    if (nextProps.value && nextProps.value.length > nextProps.block.maxlength)
+    if (
+      nextProps.value &&
+      nextProps.value.length >= nextProps.block.maxlength - 10
+    )
       lengthGuidance = nextProps.block.maxlength - nextProps.value.length;
 
     this.setState({
@@ -80,7 +83,12 @@ class Modal extends React.Component {
           x-show="open"
           className="bg-white rounded-lg px-4 pt-5 pb-4 overflow-hidden shadow-xl transform transition-all sm:max-w-lg sm:w-full sm:p-6">
           <div>
-            <div className="absolute top-5 right-5 text-sm text-red-500">
+            <div
+              className={
+                (this.state.lengthGuidance < 0
+                  ? 'text-red-500 '
+                  : 'text-orange-400 ') + 'absolute top-5 right-5 text-sm'
+              }>
               {this.state.lengthGuidance}
             </div>
             {/* <div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4" role="alert">

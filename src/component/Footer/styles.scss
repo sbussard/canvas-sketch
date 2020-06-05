@@ -1,8 +1,8 @@
 .bottomnav {
-  display: hidden;
+  visibility: hidden;
 
   @media print {
-    display: block;
+    visibility: visible;
   }
 
   font-family: apercu-mono-regular;

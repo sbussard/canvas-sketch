@@ -1,10 +1,10 @@
-export const REQUIRED_VARIABLES = ['GOOGLE_ANALYTICS_ID', 'AIRTABLE_API_KEY'];
+export const REQUIRED_VARIABLES = ['GOOGLE_ANALYTICS_ID'];
 
 /* eslint-disable */
 
 export const PROCESS_ENV =
   process.env.NODE_ENV === 'development'
-    ? { GOOGLE_ANALYTICS_ID: '', AIRTABLE_API_KEY: '', ...process.env }
+    ? { GOOGLE_ANALYTICS_ID: '', ...process.env }
     : process.env;
 
 /* eslint-enable */

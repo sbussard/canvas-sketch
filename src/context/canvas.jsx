@@ -1,6 +1,6 @@
 import React, { Component, createContext } from 'react';
 import Modal from '~/component/Modal';
-import { ENV } from '~/configuration/environment';
+//import { ENV } from '~/configuration/environment';
 import { storyData } from '~/storydata.js';
 import Airtable from 'airtable';
 
@@ -29,7 +29,7 @@ export class UseCanvas extends Component {
   constructor(props) {
     super(props);
 
-    AIRTABLE_API_KEY = ENV.AIRTABLE_API_KEY;
+    //AIRTABLE_API_KEY = ENV.AIRTABLE_API_KEY;
     this.closeModal = this.closeModal.bind(this);
     this.save = this.save.bind(this);
   }

@@ -86,8 +86,8 @@ class Modal extends React.Component {
             <div
               className={
                 (this.state.lengthGuidance < 0
-                  ? 'text-red-500 '
-                  : 'text-orange-400 ') + 'absolute top-5 right-5 text-sm'
+                  ? 'text-red-600 '
+                  : 'text-orange-500 ') + 'absolute top-5 right-5 text-sm'
               }>
               {this.state.lengthGuidance}
             </div>

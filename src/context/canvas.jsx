@@ -6,7 +6,7 @@ import Airtable from 'airtable';
 
 const Context = createContext('canvas');
 //const AIRTABLE_API_KEY = 'keyV26LysOMLAJkaJ';
-const AIRTABLE_API_KEY = ENV['AIRTABLE_API_KEY'];
+var AIRTABLE_API_KEY = '';
 const AIRTABLE_CASE_STORY_BASE = 'appv0MtYS7Uu06To2';
 const AIRTABLE_PROJECT_STORY_BASE = 'appv0MtYS7Uu06To2';
 export const CanvasConsumer = Context.Consumer;
@@ -29,6 +29,7 @@ export class UseCanvas extends Component {
   constructor(props) {
     super(props);
 
+    AIRTABLE_API_KEY = ENV.AIRTABLE_API_KEY;
     this.closeModal = this.closeModal.bind(this);
     this.save = this.save.bind(this);
   }

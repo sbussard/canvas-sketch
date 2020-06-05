@@ -7,6 +7,11 @@ import S from './styles.scss';
 let noop = () => {};
 
 let StickyNote = ({ item, index, maxlength, onClick = noop }) => (
+  // This replaces new lines withbr's...but it knocks the print styling out (because of maxing the height of each boxß)
+  // {this.props.text.split('\n').map((item, key) => {
+  //   return <span key={key}>{item}<br/></span>
+  // })}
+
   <li className={S.item} key={item + index} onClick={onClick}>
     {// limit the size of the text to this blocks maxlength (if it goes beyond it)
     item && item.length > maxlength
@@ -26,7 +31,7 @@ let View = ({ Icon, name, key = name, items, actions }) => (
   <div className={S.container} key={key}>
     <header className={S.header}>
       <span className={S.name}>{name}</span>
-      <img src={Icon} className="icon" width="40" />
+      <img src={Icon} className="icon" width="50" />
 
       {/*
         
@@ -45,7 +50,7 @@ let View = ({ Icon, name, key = name, items, actions }) => (
         onClick={actions.addItem}
         type="button"
         class="py-2 px-3 border border-gray-300 rounded-md text-sm leading-4 font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out print:hidden">
-        {items[0] == '' ? 'Add' : 'Edit'}
+        {items.length == 0 || items[0] == '' ? 'Add' : 'Edit'}
       </button>
     </footer>
   </div>

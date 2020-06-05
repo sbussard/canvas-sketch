@@ -17,7 +17,7 @@
 
 img {
   margin-left: auto;
-  margin-top: -5px;
+  margin-top: -10px;
 }
 
 .name {
@@ -121,5 +121,11 @@ img {
 
   &:hover {
     color: $blue;
+  }
+
+  @media print {
+    button {
+      display: none;
+    }
   }
 }

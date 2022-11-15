@@ -29,10 +29,23 @@ export const saveCanvas = (canvas: CanvasType) => {
   );
 };
 
+const convertOldSavedData = (oldCanvas: { [key: string]: string }) => {
+  try {
+    const newCanvas = Object.entries(oldCanvas).flatMap(([key, value]) => [
+      { name: key, data: value }
+    ]);
+    return [getMetadata(), newCanvas];
+  } catch {
+    return [getMetadata(), canvasTemplate];
+  }
+};
+
 export const loadCanvas = () => {
   const savedCanvas = localStorage.getItem(KEY);
   if (!savedCanvas) return canvasTemplate;
-  const [metadata, data] = JSON.parse(decodeURIComponent(atob(savedCanvas)));
-  console.log(`loading saved canvas using version ${metadata.version}`);
+  const retrievedData = JSON.parse(decodeURIComponent(atob(savedCanvas)));
+  const [metadata, data] = Array.isArray(retrievedData)
+    ? retrievedData
+    : convertOldSavedData(retrievedData);
   return data;
 };

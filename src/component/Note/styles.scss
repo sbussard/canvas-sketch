@@ -54,9 +54,8 @@
 
   &:hover {
     transition: filter var(--transition-time) ease;
-    filter: drop-shadow(0 0 0.1rem var(--yellow))
-      drop-shadow(0 0.1rem 0.01rem hsla(0, 0%, 0%, 0.25))
-      drop-shadow(0 1rem 0.1rem hsla(0, 0%, 0%, 0.05));
+    filter: drop-shadow(0 0.1rem 0 var(--yellow))
+      drop-shadow(0 1rem 0.2rem hsla(0, 0%, 0%, 0.15));
   }
 
   &:hover &-content::after {

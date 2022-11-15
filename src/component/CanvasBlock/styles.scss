@@ -1,0 +1,44 @@
+.CanvasBlock {
+  background: var(--theme-surface);
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  &-header {
+    display: inline-grid;
+    grid-auto-flow: column;
+    grid-template-columns: 1fr auto auto;
+    position: relative;
+    align-items: center;
+    margin-bottom: 1em;
+  }
+
+  &-name {
+    font-weight: bold;
+    color: var(--theme-surface-contrast);
+  }
+
+  &-list {
+  }
+
+  &-icon {
+    --icon-color: var(--theme-primary);
+    width: 1em;
+    height: 1em;
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+
+  &-button {
+    cursor: pointer;
+    border: 0;
+    color: var(--theme-surface-contrast-soft);
+    outline: none;
+    background: transparent;
+
+    &:hover {
+      color: var(--theme-primary);
+    }
+  }
+}

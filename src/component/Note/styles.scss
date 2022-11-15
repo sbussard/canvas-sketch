@@ -1,0 +1,66 @@
+.Note {
+  --transition-time: 350ms;
+
+  cursor: pointer;
+  color: var(--gray-xxdark);
+  display: inline-block;
+  padding: 0.25em;
+  font-family: var(--caveat);
+  font-size: 1.5em;
+  transform: rotate(1deg);
+  position: relative;
+  transition: filter var(--transition-time) ease;
+  filter: drop-shadow(0 0 0.1rem var(--yellow))
+    drop-shadow(0 0.1rem 0.01rem hsla(0, 0%, 0%, 0.25))
+    drop-shadow(0 0.8rem 0.25rem hsla(0, 0%, 0%, 0));
+  will-change: filter;
+
+  &-content {
+    background-color: var(--yellow);
+    background-image: linear-gradient(
+      135deg,
+      var(--yellow),
+      var(--yellow-xlight)
+    );
+    clip-path: url(#stickyNotePathDefault);
+    padding: 0.5em 1em;
+  }
+
+  &-content:after {
+    content: '';
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    background-image: linear-gradient(
+      180deg,
+      transparent 50%,
+      var(--yellow-xlight) 75%
+    );
+    z-index: -1;
+    opacity: 0;
+    transition: ease all var(--transition-time);
+  }
+
+  &-text {
+    display: inline-grid;
+    place-content: center center;
+    max-width: 15ch;
+    text-align: center;
+    aspect-ratio: 1 / 1;
+    z-index: 2;
+  }
+
+  &:hover {
+    transition: filter var(--transition-time) ease;
+    filter: drop-shadow(0 0 0.1rem var(--yellow))
+      drop-shadow(0 0.1rem 0.01rem hsla(0, 0%, 0%, 0.25))
+      drop-shadow(0 1rem 0.1rem hsla(0, 0%, 0%, 0.05));
+  }
+
+  &:hover &-content::after {
+    opacity: 1;
+    transition: ease all var(--transition-time);
+  }
+}

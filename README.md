@@ -4,13 +4,13 @@ A web app to sketch out a [business model canvas](https://en.wikipedia.org/wiki/
 
 [The app is available free online](https://sbussard.github.io/canvas-sketch/).
 
-## Enviroment
+## Environment
 
 `node` and `yarn`
 
 | Variable            | Required       | Value                             |
 | ------------------- | -------------- | --------------------------------- |
-| REACT_APP_GOOGLE_ANALYTICS_ID | For Production | Your Google Analytics property id |
+| GOOGLE_ANALYTICS_ID | For Production | Your Google Analytics property id |
 
 ## Install
 

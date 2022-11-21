@@ -18,7 +18,7 @@ A web app to sketch out a [business model canvas](https://en.wikipedia.org/wiki/
 
 ## Develop
 
-`yarn start`
+`yarn dev`
 
 ## Build
 

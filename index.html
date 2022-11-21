@@ -1,134 +1,130 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Canvas Sketch</title>
-    <meta name="description" content="Sketch a business model canvas" />
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=<%= GOOGLE_ANALTICS_ID %>"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag('js', new Date());
-      gtag('config', '<%= GOOGLE_ANALTICS_ID %>');
-    </script>
-    <link
-      href="https://fonts.googleapis.com/css?family=Caveat"
-      rel="stylesheet"
-    />
-    <style>
-      :root {
-        /* colors */
-        --white: #ffffff;
-        --black: #000000;
 
-        --yellow-xlight: hsla(52, 92%, 95%, 1);
-        --yellow-light: hsla(52, 96%, 90%, 1);
-        --yellow: hsla(52, 97%, 87%, 1);
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Canvas Sketch</title>
+  <meta name="description" content="Sketch a business model canvas" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=<%= GOOGLE_ANALTICS_ID %>"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', '<%= GOOGLE_ANALTICS_ID %>');
+  </script>
+  <link href="https://fonts.googleapis.com/css?family=Caveat" rel="stylesheet" />
+  <style>
+    :root {
+      /* colors */
+      --white: #ffffff;
+      --black: #000000;
 
-        --orange: #faab19;
-        --orange-dark: #f58331;
+      --yellow-xlight: hsla(52, 92%, 95%, 1);
+      --yellow-light: hsla(52, 96%, 90%, 1);
+      --yellow: hsla(52, 97%, 87%, 1);
 
-        --rust: #e55934;
-        --rust-dark: #a74126;
+      --orange: #faab19;
+      --orange-dark: #f58331;
 
-        --red: #f26552;
-        --red-dark: #e64b40;
+      --rust: #e55934;
+      --rust-dark: #a74126;
 
-        --green: #48ce65;
-        --green-dark: #16a597;
+      --red: #f26552;
+      --red-dark: #e64b40;
 
-        --blue: #00b2f6;
-        --blue-dark: #0091d9;
+      --green: #48ce65;
+      --green-dark: #16a597;
 
-        --gray-xxxlight: #f5f7f8;
-        --gray-xxlight: #d5d9db;
-        --gray-xlight: #b6bec2;
-        --gray-light: #8e999e;
-        --gray: #69757a;
-        --gray-dark: #495257;
-        --gray-xdark: #333a3d;
-        --gray-xxdark: #1f2426;
+      --blue: #00b2f6;
+      --blue-dark: #0091d9;
 
-        /* fonts */
-        --caveat: 'Caveat', cursive;
-      }
+      --gray-xxxlight: #f5f7f8;
+      --gray-xxlight: #d5d9db;
+      --gray-xlight: #b6bec2;
+      --gray-light: #8e999e;
+      --gray: #69757a;
+      --gray-dark: #495257;
+      --gray-xdark: #333a3d;
+      --gray-xxdark: #1f2426;
 
-      .theme-light {
-        --theme-surface: var(--white);
-        --theme-surface-contrast: var(--gray-dark);
-        --theme-surface-contrast-soft: var(--gray);
-        --theme-surface-alternate: var(--gray-xxxlight);
-        --theme-primary: var(--blue-dark);
-        --shadow: hsla(0, 0%, 0%, 0.15);
-        --shadow-active: hsla(0, 0%, 0%, 0.05);
-      }
+      /* fonts */
+      --caveat: 'Caveat', cursive;
+    }
 
-      .theme-dark {
-        --theme-surface: var(--gray-xdark);
-        --theme-surface-contrast: var(--gray-light);
-        --theme-surface-contrast-soft: var(--gray);
-        --theme-surface-alternate: var(--gray-xxdark);
-        --theme-primary: var(--blue);
-        --shadow: hsla(0, 0%, 0%, 0.65);
-        --shadow-active: hsla(0, 0%, 0%, 0.55);
-      }
+    .theme-light {
+      --theme-surface: var(--white);
+      --theme-surface-contrast: var(--gray-dark);
+      --theme-surface-contrast-soft: var(--gray);
+      --theme-surface-alternate: var(--gray-xxxlight);
+      --theme-primary: var(--blue-dark);
+      --shadow: hsla(0, 0%, 0%, 0.15);
+      --shadow-active: hsla(0, 0%, 0%, 0.05);
+    }
 
-      * {
-        -webkit-font-smoothing: antialiased;
-        box-sizing: border-box;
-      }
+    .theme-dark {
+      --theme-surface: var(--gray-xdark);
+      --theme-surface-contrast: var(--gray-light);
+      --theme-surface-contrast-soft: var(--gray);
+      --theme-surface-alternate: var(--gray-xxdark);
+      --theme-primary: var(--blue);
+      --shadow: hsla(0, 0%, 0%, 0.65);
+      --shadow-active: hsla(0, 0%, 0%, 0.55);
+    }
 
-      html,
-      body {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        width: 100%;
-        min-height: 100vh;
-      }
+    * {
+      -webkit-font-smoothing: antialiased;
+      box-sizing: border-box;
+    }
 
-      html {
-        font-size: 65.2%;
-      }
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      min-height: 100vh;
+    }
 
-      body {
-        font-size: 1.6rem;
-        font-family: sans-serif;
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr;
-        background: var(--theme-surface-alternate);
-        overscroll-behavior: none;
-      }
+    html {
+      font-size: 65.2%;
+    }
 
-      ul,
-      ol {
-        padding: 0;
-        margin: 0;
-      }
+    body {
+      font-size: 1.6rem;
+      font-family: sans-serif;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr;
+      background: var(--theme-surface-alternate);
+      overscroll-behavior: none;
+    }
 
-      #root {
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-    <script>
-      // const useDarkMode = window.matchMedia(
-      //   '(prefers-color-scheme: dark)'
-      // ).matches;
-      // document.body.classList.add(useDarkMode ? 'theme-dark' : 'theme-light');
-      document.body.classList.add('theme-light');
-    </script>
-  </body>
+    ul,
+    ol {
+      padding: 0;
+      margin: 0;
+    }
+
+    #root {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+  <script>
+    const useDarkMode = window.matchMedia(
+      '(prefers-color-scheme: dark)'
+    ).matches;
+    document.body.classList.add(useDarkMode ? 'theme-dark' : 'theme-light');
+  </script>
+</body>
+
 </html>

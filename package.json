@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@types/node": "^18.11.9",
-    "gh-pages": "^4.0.0",
+    "gh-pages": "^5.0.0",
     "immer": "^9.0.16",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
